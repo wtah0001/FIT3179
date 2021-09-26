@@ -1,43 +1,59 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "COVID-19 Active Cases (10 Oct 2020)",
-  "width": 800,
-  "height": 600,
+  "title": "Percentage of Top Ranking Universities in Every Country",
+  "width": 1000,
+  "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+    "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/choropleth_map/js/countries.topojson",
     "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
         }
   },
-  "transform": [{
-      "lookup": "properties.NAME",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/KaneSec/vega_lite/main/3_choropleth_map/data/covid_10_10_2020.csv"
-        },
-        "key": "Country",
-        "fields": ["Active"]
+  "layer":[
+    {
+      "transform": [
+        {"calculate": "'No universities located in ' + datum.properties.name + '' ", "as": "note"}
+      ],
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
       }
     },
-    {"calculate": "datum.Active + 0.1", "as": "Active Cases"}
-  ],
-  "projection": {
-    "type": "equirectangular"
-  },
-  "mark": {
-    "type": "geoshape"
+    {
+    "transform": [{
+        "lookup": "properties.name",
+        "from": {
+          "data": {
+            "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/choropleth_map/data/viz1_data.csv"
+          },
+          "key": "COUNTRY",
+          "fields": ["OH","OHtoTH","THtoFH","FHtoOT","OTtoFT","FTtoTT","SUM","ALL"]
+        }
+      },
+      {"calculate": "datum.SUM/datum.ALL * 100", "as": "Top_perc"}
+    ],
+    "projection": {
+      "type": "equirectangular"
     },
-  "encoding": {
-    "color": {
-      "field": "Active Cases",
-      "type": "quantitative",
-      "scale": {"type": "log"}
-    },
-    "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-      {"field": "Active", "type": "quantitative"}
-    ]
-  }
-
+    "mark": {
+      "type": "geoshape"
+      },
+    "encoding": {
+      "color": {
+        "field": "Top_perc",
+        "type": "quantitative",
+        "scale": {"type": "threshold", "domain":[1,10,25,50,75], "range": ["#ffffcc","#c7e9b4","#7fcdbb","#41b6c4","#2c7fb8","#253494"]},
+        "legend": {"title": "% of Top Ranking Universities"}
+      },
+      "tooltip": [
+        {"field": "properties.name", "type": "nominal", "title": "Country Name"},
+        {"field": "Top_perc", "type": "quantitative", "title": "% of Top University"},
+        {"field": "SUM", "type": "quantitative", "title": "Universities ranking 1-5000"},
+        {"field": "ALL", "type": "quantitative", "title": "Total number of Universities"}
+      ]
+    }
+  }]
 }
