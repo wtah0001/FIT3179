@@ -4,7 +4,7 @@
   "width": 1000,
   "height": 500,
   "data": {
-    "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/choropleth_map/js/countries.topojson",
+    "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/js/countries.topojson",
     "format": {
           "type": "topojson",
           "feature": "ne_110m_admin_0_countries"
@@ -27,7 +27,7 @@
         "lookup": "properties.name",
         "from": {
           "data": {
-            "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/choropleth_map/data/viz1_data.csv"
+            "url": "https://raw.githubusercontent.com/wtah0001/FIT3179/main/data/viz1_data.csv"
           },
           "key": "COUNTRY",
           "fields": ["OH","OHtoTH","THtoFH","FHtoOT","OTtoFT","FTtoTT","SUM","ALL"]
