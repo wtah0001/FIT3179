@@ -1,4 +1,4 @@
-COUNTRY,100,101to200,201to500,501to1000,1001to5000,5001to10000,ALL
+COUNTRY,OH,OHtoTH,THtoFH,FHtoOT,OTtoFT,FTtoTT,ALL
 United States,56,36,60,101,569,1538,3216
 United Kingdom,8,11,24,36,63,51,280
 Australia,7,3,13,12,7,22,190
@@ -99,7 +99,7 @@ Kuwait,0,0,0,0,4,3,12
 Azerbaijan,0,0,0,0,4,2,48
 North Macedonia,0,0,0,0,4,2,22
 Syria,0,0,0,0,3,8,41
-S. Sudan,0,0,0,0,3,7,59
+Sudan,0,0,0,0,3,7,59
 Yemen,0,0,0,0,3,6,48
 Albania,0,0,0,0,3,4,41
 Nepal,0,0,0,0,3,4,32
@@ -148,7 +148,7 @@ Virgin Islands US,0,0,0,0,1,0,1
 Afghanistan,0,0,0,0,0,3,95
 Burkina Faso,0,0,0,0,0,3,17
 Papua New Guinea,0,0,0,0,0,3,6
-Laos PDR,0,0,0,0,0,3,4
+Lao PDR,0,0,0,0,0,3,4
 Myanmar,0,0,0,0,0,2,89
 Bhutan,0,0,0,0,0,2,10
 Saint Kitts and Nevis,0,0,0,0,0,2,7
@@ -180,7 +180,7 @@ Monaco,0,0,0,0,0,1,1
 Réunion,0,0,0,0,0,1,1
 San Marino,0,0,0,0,0,1,1
 "Bonaire, Sint Eustatius and Saba",0,0,0,0,0,1,1
-Somalila,0,0,0,0,0,0,83
+Somalia,0,0,0,0,0,0,83
 Gabon,0,0,0,0,0,0,12
 Curaçao,0,0,0,0,0,0,8
 Mali,0,0,0,0,0,0,8
